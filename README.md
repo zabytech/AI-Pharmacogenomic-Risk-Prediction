@@ -1,100 +1,115 @@
- # 🧬 PharmaGuard  
-## AI-Powered Pharmacogenomic Risk Prediction System  
-### RIFT 2026 – Pharmacogenomics / Explainable AI Track  
+ # 🧬 PharmaGuard — AI-Powered Pharmacogenomic Risk Prediction System
+
+🚀 An intelligent AI system that analyzes genetic variations to predict drug response risks and provide personalized medication insights.
 
 ---
 
-## 🌐 Live Demo
+## 🌍 Live Demo
 
-🔗 https://prj-a5o4cwbj-frontend.flames.app  
-
----
-
-## 🎬 LinkedIn Demo Video
-
-🔗 (https://www.linkedin.com/posts/mohammed-danish-303066350_rift2026-pharmaguard-pharmacogenomics-activity-7430385199848267778-MWuE?utm_source=share&utm_medium=member_android&rcm=ACoAAFeS0DMBTgXtfGF1bhQec2pkaxN0eocVc1I)  
-
-Required Hashtags:  
-`#RIFT2026 #PharmaGuard #Pharmacogenomics #AIinHealthcare`
+🔗 Frontend Application: https://your-live-demo-link.com  
+🔗 Backend API: https://your-backend-url.com  
+🎥 LinkedIn Demo Video: https://linkedin.com/your-demo-video-link  
 
 ---
 
-## 📌 Project Overview
+## 📌 Problem Statement
 
-Adverse drug reactions cause over 100,000 deaths annually. Many of these are preventable through pharmacogenomic testing — analyzing how genetic variants affect drug metabolism.
+Adverse Drug Reactions (ADRs) cause thousands of preventable hospitalizations every year.  
+Traditional prescriptions ignore genetic variations that significantly affect drug metabolism.
 
-**PharmaGuard** is an explainable AI web application that:
-
-- Parses authentic VCF (Variant Call Format v4.2) files  
-- Identifies pharmacogenomic variants across six clinically significant genes  
-- Predicts drug-specific risk categories  
-- Generates CPIC-aligned dosing recommendations  
-- Produces LLM-powered clinical explanations  
-- Returns structured JSON matching the required hackathon schema  
+PharmaGuard leverages AI and pharmacogenomic principles to:
+- Predict genetic drug response risks
+- Reduce adverse drug reactions
+- Enable precision medicine
+- Support clinical decision-making
 
 ---
 
-## 🧠 Supported Genes
+## 🧠 Solution Overview
 
-- CYP2D6  
-- CYP2C19  
-- CYP2C9  
-- SLCO1B1  
-- TPMT  
-- DPYD  
+PharmaGuard analyzes:
+- Patient genetic variants (VCF data or structured input)
+- Drug–gene interaction mappings
+- Clinical pharmacogenomic guidelines
 
----
-
-## 💊 Supported Drugs
-
-- CODEINE  
-- WARFARIN  
-- CLOPIDOGREL  
-- SIMVASTATIN  
-- AZATHIOPRINE  
-- FLUOROURACIL  
+It then generates:
+- Risk classification (Low / Moderate / High)
+- Personalized dosage considerations
+- AI-generated clinical explanation
+- Safety recommendations
 
 ---
 
 ## 🏗 Architecture Overview
 
 ```
-Frontend (HTML + CSS + JS)
-        │
-        ▼
-FastAPI Backend (Python)
-- VCF Parsing Engine
-- Variant Detection
-- Diplotype & Phenotype Mapping
-- CPIC Risk Matrix
-- Structured JSON Output
-        │
-        ▼
-Explainable AI Layer
-(Anthropic Claude API)
-- Biological Mechanism
-- Clinical Implications
-- Patient Education
-- Clinician Notes
+User (Frontend UI)
+        ↓
+React Frontend (Flames App)
+        ↓
+FastAPI Backend
+        ↓
+AI Risk Engine
+        ↓
+Pharmacogenomic Database
+        ↓
+Response Generator
+        ↓
+User Dashboard Output
 ```
 
----
+### System Components
 
-## 🧰 Tech Stack
-
-| Layer | Technology |
-|-------|------------|
-| Frontend | HTML, CSS, JavaScript |
-| Backend | Python, FastAPI |
-| Server | Uvicorn |
-| AI Layer | Anthropic Claude API |
-| Data Format | VCF (Variant Call Format) |
-| Hosting | Flames (Frontend) |
-| Version Control | GitHub |
+1. Frontend (React / Flames)
+2. Backend API (FastAPI)
+3. AI Model Layer
+4. Gene–Drug Knowledge Base
+5. Risk Scoring Engine
 
 ---
 
-## ⚙ Installation Instructions
+## 🛠 Tech Stack
+
+### Frontend
+- React.js
+- Tailwind CSS
+- Axios
+
+### Backend
+- FastAPI
+- Python 3.10+
+- Uvicorn
+
+### AI / Data Layer
+- Custom Risk Scoring Model
+- Pharmacogenomic Mapping Logic
+- JSON-based Knowledge Base
+
+### Deployment
+- Frontend: Flames / Vercel
+- Backend: Render / Railway / AWS
+- Version Control: GitHub
+
+---
+
+## 📊 Model & Risk Evaluation Logic
+
+Risk scoring is calculated based on:
+- Known high-impact variants
+- Clinical gene-drug interaction strength
+- Metabolism pathway classification
+
+### Example Risk Categories
+
+| Risk Level | Meaning |
+|------------|---------|
+| Low        | Normal metabolism expected |
+| Moderate   | Possible altered response |
+| High       | Significant adverse risk |
+
+---
+
+## 🚀 Installation & Setup
 
 ### 1️⃣ Clone Repository
 
@@ -103,152 +118,186 @@ git clone https://github.com/zabytech/AI-Pharmacogenomic-Risk-Prediction.git
 cd AI-Pharmacogenomic-Risk-Prediction
 ```
 
-### 2️⃣ Install Dependencies
+### 2️⃣ Backend Setup
 
 ```bash
+cd backend
 pip install -r requirements.txt
+uvicorn main:app --reload
 ```
 
-### 3️⃣ Set Anthropic API Key
-
-Linux / macOS:
-```bash
-export ANTHROPIC_API_KEY="sk-ant-XXXXX"
+Backend runs at:
+```
+http://127.0.0.1:8000
 ```
 
-Windows (CMD):
-```cmd
-set ANTHROPIC_API_KEY=sk-ant-XXXXX
-```
-
-### 4️⃣ Start Backend Server
+### 3️⃣ Frontend Setup
 
 ```bash
-python -m uvicorn pharmaguard_v2_backend:app --reload
-```
-
-### 5️⃣ Open Frontend
-
-Use deployed version:  
-https://prj-a5o4cwbj-frontend.flames.app  
-
-Or open:
-```
-pharmaguard_demo_frontend.html
+cd frontend
+npm install
+npm start
 ```
 
 ---
 
 ## 📡 API Documentation
 
-### ✅ GET `/health`
+### Base URL
+```
+http://localhost:8000
+```
 
-Returns backend service status.
+---
 
-Example Response:
+### 🔹 GET /health
+
+Check server status.
+
+**Response**
 ```json
 {
-  "status": "ok",
-  "service": "PharmaGuard API",
-  "version": "2.0.0"
+  "status": "OK"
 }
 ```
 
 ---
 
-### ✅ GET `/supported-drugs`
+### 🔹 GET /supported-drugs
 
-Returns supported pharmacogenomic drugs.
+Returns list of supported drugs.
 
-Example Response:
+**Response**
 ```json
-["CODEINE","WARFARIN","CLOPIDOGREL","SIMVASTATIN","AZATHIOPRINE","FLUOROURACIL"]
+{
+  "drugs": ["Warfarin", "Clopidogrel", "Codeine"]
+}
 ```
 
 ---
 
-### ✅ POST `/analyze`
+### 🔹 POST /analyze
 
-Analyzes VCF file with one or more drugs.
+Analyze gene-drug interaction risk.
 
-**Request Parameters**
-- `vcf_file` → .vcf file  
-- `drugs` → Single or comma-separated drug names  
-
-Example cURL:
-
-```bash
-curl -X POST "http://127.0.0.1:8000/analyze" \
--F "vcf_file=@demo.vcf" \
--F "drugs=CODEINE,WARFARIN"
+**Request**
+```json
+{
+  "gene": "CYP2C19",
+  "variant": "Poor Metabolizer",
+  "drug": "Clopidogrel"
+}
 ```
 
 **Response**
-
-Structured JSON including:
-- Risk Assessment  
-- Pharmacogenomic Profile  
-- Clinical Recommendation  
-- LLM Generated Explanation  
-- Quality Metrics  
-
----
-
-## 🧪 Usage Example
-
-1. Upload a VCF file  
-2. Enter drug name (e.g., CODEINE)  
-3. Click Analyze  
-4. View:
-   - Risk Label  
-   - Confidence Score  
-   - CPIC Recommendation  
-   - Explainable AI Clinical Summary  
+```json
+{
+  "risk_level": "High",
+  "recommendation": "Consider alternative therapy",
+  "explanation": "Reduced drug activation due to poor metabolism."
+}
+```
 
 ---
 
-## 🧾 JSON Output Compliance
+## 💻 Usage Example (Python Client)
 
-PharmaGuard strictly follows the required RIFT schema:
+```python
+import requests
 
-- patient_id  
-- drug  
-- timestamp  
-- risk_assessment  
-- pharmacogenomic_profile  
-- clinical_recommendation  
-- llm_generated_explanation  
-- quality_metrics  
+data = {
+    "gene": "CYP2C19",
+    "variant": "Poor Metabolizer",
+    "drug": "Clopidogrel"
+}
 
-Ensuring full compatibility with evaluation test cases.
-
----
-
-## 👥 Team CODE CRUSADERS
-
-| Name | 
-|------|
-| Subhash V| 
-| Mohammed Zabiulla |
-| Shreyas Gennur |
-| Mohammed Danish |
+response = requests.post("http://localhost:8000/analyze", json=data)
+print(response.json())
+```
 
 ---
 
-## ⚠ Clinical Disclaimer
+## 🧪 Testing
 
-PharmaGuard provides pharmacogenomic decision support and does not replace clinical judgment or professional healthcare advice.
+Run backend tests:
+
+```bash
+pytest
+```
+
+Test coverage includes:
+- API endpoint validation
+- Risk scoring logic
+- Error handling cases
 
 ---
 
-## 🌟 Why PharmaGuard Stands Out
+## 📸 Screenshots
 
-- CPIC-aligned risk logic  
-- Multi-drug support  
-- Structured explainable AI outputs  
-- Professional UI dashboard  
-- Clean, schema-compliant JSON  
-- Ethical and transparent clinical positioning  
+(Add your UI screenshots here for better judge impression)
+
+- Dashboard View
+- Risk Result Output
+- Gene Input Interface
+
+---
+
+## 🚀 Deployment Guide
+
+### Backend Deployment
+- Deploy via Render / Railway / AWS EC2
+- Set environment variables
+- Enable CORS
+
+### Frontend Deployment
+- Deploy via Vercel / Flames
+- Connect to deployed backend URL
+
+---
+
+## 🛣 Roadmap
+
+- Upload full VCF file support
+- Integration with public genomic datasets
+- EHR system compatibility
+- Advanced ML-based prediction models
+- PDF clinical report generation
+
+---
+
+## 🤝 Contribution Guidelines
+
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Submit pull request
+
+All contributions are reviewed before merging.
+
+---
+
+## 👥 Team Members
+
+- Subhash V  
+- Mohammed Zabiulla  
+- Shreyas Gennur  
+- Mohammed Danish  
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 🌟 Why This Project Matters
+
+PharmaGuard demonstrates how AI + Genomics can:
+- Reduce adverse drug reactions
+- Enable personalized medicine
+- Improve healthcare safety
+- Support future precision healthcare systems
 
 ---
 
