@@ -95,14 +95,17 @@ FLUOROURACIL
              └────────────────────────────┘
 
 🧰 Tech Stack
-Layer	Technology
-Frontend	HTML, CSS, JavaScript
-Backend	Python, FastAPI
-Server	Uvicorn
-AI Layer	Anthropic Claude API
-Genomic Data	VCF (Variant Call Format)
-Hosting	Flames (Frontend)
-Version Control	GitHub
+
+| Layer           | Technology                |
+| --------------- | ------------------------- |
+| Frontend        | HTML, CSS, JavaScript     |
+| Backend         | Python, FastAPI           |
+| Server          | Uvicorn                   |
+| AI Layer        | Anthropic Claude API      |
+| Genomic Data    | VCF (Variant Call Format) |
+| Hosting         | Flames (Frontend)         |
+| Version Control | GitHub                    |
+
 ⚙ Installation & Local Setup
 1️⃣ Clone Repository
 git clone https://github.com/zabytech/AI-Pharmacogenomic-Risk-Prediction.git
@@ -112,14 +115,9 @@ cd AI-Pharmacogenomic-Risk-Prediction
 pip install -r requirements.txt
 
 3️⃣ Set Environment Variable
-
-Linux/macOS:
-
 export ANTHROPIC_API_KEY="sk-ant-XXXXX"
 
-
 Windows (CMD):
-
 set ANTHROPIC_API_KEY=sk-ant-XXXXX
 
 4️⃣ Run Backend
@@ -129,97 +127,62 @@ python -m uvicorn pharmaguard_v2_backend:app --reload
 
 Use deployed version:
 👉 https://prj-a5o4cwbj-frontend.flames.app
-
 Or open:
-
 pharmaguard_demo_frontend.html
 
 📡 API Documentation
 GET /health
-
 Returns backend status.
-
 GET /supported-drugs
-
 Returns list of supported pharmacogenomic drugs.
-
 POST /analyze
-
 Analyzes VCF file + drug(s).
-
 Request:
-
 vcf_file (.vcf)
-
 drugs (single or comma-separated)
 
 Response:
 Structured JSON including:
-
 Risk assessment
-
 Pharmacogenomic profile
-
 Clinical recommendation
-
 Explainable AI summary
 
 Quality metrics
-
 🧪 Example Workflow
 
 Upload VCF file
-
 Enter drug name (e.g., CODEINE)
-
 Click Analyze
 
 Review:
-
 Risk badge
-
 Confidence score
-
 CPIC-aligned dosing
 
 AI-generated explanation
-
 🧩 JSON Output Compliance
-
 PharmaGuard returns structured JSON strictly matching the required RIFT schema, including:
-
 patient_id
-
 drug
-
 timestamp
-
 risk_assessment
-
 pharmacogenomic_profile
-
 clinical_recommendation
-
 llm_generated_explanation
-
 quality_metrics
-
 This ensures full compatibility with evaluation test cases.
 
 🛡 Clinical Alignment
-
 CPIC Evidence Level Integration
-
 Diplotype → Phenotype Mapping
-
 Drug-specific risk matrix
-
 Confidence scoring logic
-
 PharmaGuard provides decision support — not medical diagnosis.
 
-TEAM NAME: CODE CRUSADERS
-👥 Team Members
+👥TEAM NAME: CODE CRUSADERS
+
+Team Members:
 Subhash V
 Mohammed Danish
 Shreyas Gennur
