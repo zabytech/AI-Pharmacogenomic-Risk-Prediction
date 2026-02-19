@@ -1,0 +1,157 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Enhance UI with animated DNA/capsule background, professional intro, metric cards, and smooth transitions",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "summary": "Add animated background featuring DNA helix and capsule graphics that move smoothly across the screen, creating a dynamic biomedical atmosphere throughout the application",
+      "acceptanceCriteria": [
+        "DNA helix and capsule graphics are visible and animated in the background",
+        "Animations are smooth and do not interfere with UI readability",
+        "Background elements move continuously throughout the application",
+        "Visual style matches the professional medical theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AnimatedBackground.tsx",
+          "operation": "create",
+          "description": "Create a new AnimatedBackground component that renders DNA helix (frontend/public/assets/generated/dna-helix.dim_400x400.png) and capsule (frontend/public/assets/generated/capsule.dim_200x200.png) graphics with smooth CSS animations. Use absolute positioning with low z-index to keep graphics behind content. Implement continuous floating/drifting animations using keyframes with different durations and delays for visual variety. Ensure animations use transform properties for GPU acceleration and smooth performance."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Import and integrate the AnimatedBackground component into the Layout wrapper. Position it as the first child with fixed positioning to span the entire viewport behind all content. Ensure the background renders across all pages while maintaining readability of foreground UI elements."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add custom keyframe animations for DNA helix and capsule movements including float-diagonal, drift-horizontal, and gentle-rotate animations. Define animations with smooth easing functions and appropriate durations (15-30s) for organic movement. Ensure animations complement the existing medical theme colors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Refine the intro animation to prominently display 'MS' letterforms in a professional biomedical style with smooth transitions before entering the main application",
+      "acceptanceCriteria": [
+        "Intro sequence displays 'MS' letters clearly and professionally",
+        "Animation uses smooth transitions and medical/biotech styling",
+        "Intro completes seamlessly before showing main application",
+        "Skip functionality remains available for returning users"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/IntroAnimation.tsx",
+          "operation": "modify",
+          "description": "Enhance the existing IntroAnimation component to prominently feature 'MS' letterforms. Replace or supplement the current DNA helix animation with large, professional 'MS' typography using medical/biotech styling. Implement smooth fade-in and scale transitions for the letters. Add subtle glow effects using the existing pulse-glow animation. Maintain the existing 4-stage animation system and skip functionality. Ensure transitions between stages are smooth and the final fade-out seamlessly reveals the main application."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add or refine keyframe animations for 'MS' letterform transitions including letter-fade-in, letter-scale, and professional glow effects. Define smooth easing curves for professional appearance. Ensure animations coordinate with the existing pulse-glow and fade-in utilities while maintaining the medical theme color palette."
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Create dedicated metric cards for all key numerical values in analysis reports including confidence score, severity, risk count, dose adjustments, and other primary metrics with professional medical styling",
+      "acceptanceCriteria": [
+        "All primary numerical metrics from reports are displayed in dedicated cards",
+        "Cards use professional medical design with appropriate icons",
+        "Metric values are clearly labeled and easy to read",
+        "Cards integrate seamlessly with the existing MetricsPanel design"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/MetricCard.tsx",
+          "operation": "modify",
+          "description": "Extend the existing MetricCard component to support additional metric types beyond the current confidence, risk, adjustment, and success types. Add support for severity, risk-count, and other analysis-specific metrics. Enhance styling with medical icons and gradient backgrounds that match the professional biomedical theme. Ensure cards display metric labels clearly with appropriate units and formatting."
+        },
+        {
+          "path": "frontend/src/components/MetricsPanel.tsx",
+          "operation": "modify",
+          "description": "Enhance the MetricsPanel component to display all key numerical metrics from analysis results. Add cards for severity levels, individual risk counts per drug, dose adjustment details, and any additional metrics from QualityMetrics. Maintain the responsive grid layout while accommodating the expanded set of metric cards. Ensure calculations aggregate data appropriately from the AnalysisResult array."
+        },
+        {
+          "path": "frontend/src/components/AnalysisResults.tsx",
+          "operation": "modify",
+          "description": "Integrate the enhanced MetricsPanel prominently in the analysis results display. Position metric cards above or alongside the existing accordion sections for risk assessments. Ensure the metrics provide a quick visual summary of key findings before users dive into detailed analysis sections."
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Enhance the application logo with smooth transitions and professional animations, ensuring it displays properly across all views with polished visual effects",
+      "acceptanceCriteria": [
+        "Logo appears with smooth transitions when loading",
+        "Logo maintains professional appearance across all screen sizes",
+        "Animations are subtle and enhance the medical theme",
+        "Logo transitions are consistent throughout the application"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Enhance the logo display in the header with smooth fade-in and scale animations on initial load. Add subtle hover effects with transform transitions for professional polish. Ensure the logo (frontend/public/assets/generated/logo.dim_256x256.png) maintains proper sizing and quality across all viewport sizes using responsive image techniques. Apply medical theme styling with the existing color palette."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add custom animations for logo transitions including logo-fade-in, logo-hover-scale, and subtle glow effects. Define smooth easing functions for professional appearance. Ensure animations are performant using transform and opacity properties. Keep animations subtle to maintain professional aesthetic."
+        },
+        {
+          "path": "frontend/src/components/IntroAnimation.tsx",
+          "operation": "modify",
+          "description": "Ensure the logo appears with consistent smooth transitions in the intro animation sequence. Coordinate logo animations with the 'MS' letterform display for a cohesive intro experience. Use the same transition timing and easing as defined in the global styles for consistency."
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Improve overall user interface friendliness by refining interaction patterns, visual hierarchy, accessibility, and user guidance throughout the application",
+      "acceptanceCriteria": [
+        "UI elements have clear affordances and intuitive interactions",
+        "Visual hierarchy guides users through the analysis workflow",
+        "Help text and tooltips provide context where needed",
+        "Overall interface feels welcoming and easy to navigate"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AnalysisPage.tsx",
+          "operation": "modify",
+          "description": "Enhance the analysis workflow with clearer visual hierarchy and step indicators. Add helpful tooltips and guidance text for each step (upload, drug selection, analysis). Improve button states and loading indicators for better user feedback. Add micro-interactions like hover effects and smooth transitions between workflow states. Ensure the hero section provides clear calls-to-action and context for new users."
+        },
+        {
+          "path": "frontend/src/components/VCFUploader.tsx",
+          "operation": "modify",
+          "description": "Improve upload UX with clearer drag-and-drop affordances, better visual feedback during upload progress, and helpful error messages. Add tooltips explaining VCF file requirements. Enhance the upload area styling to be more inviting and obvious. Include success animations and clear next-step guidance after successful upload."
+        },
+        {
+          "path": "frontend/src/components/DrugSelector.tsx",
+          "operation": "modify",
+          "description": "Enhance drug selection interface with better visual hierarchy and interaction patterns. Add tooltips or info icons explaining each drug's purpose. Improve the dropdown styling and selected drug badge appearance for clearer affordances. Add smooth transitions when adding/removing drugs. Include helpful guidance about selecting appropriate drugs."
+        },
+        {
+          "path": "frontend/src/components/AnalysisResults.tsx",
+          "operation": "modify",
+          "description": "Improve results display with clearer visual hierarchy and progressive disclosure. Enhance accordion interactions with smooth transitions and better hover states. Add contextual help icons with tooltips explaining complex medical terms. Improve readability of pharmacogenomic profiles and recommendations with better formatting and spacing. Ensure critical information stands out visually."
+        },
+        {
+          "path": "frontend/src/components/Chatbot.tsx",
+          "operation": "modify",
+          "description": "Enhance chatbot interface with friendlier messaging and clearer interaction patterns. Improve input field styling and submit button affordances. Add helpful placeholder text suggesting questions users can ask. Enhance message display with better spacing and readability. Add smooth scroll animations when new messages appear."
+        },
+        {
+          "path": "frontend/src/components/RiskBadge.tsx",
+          "operation": "modify",
+          "description": "Improve risk badge accessibility and clarity with ARIA labels, better color contrast for readability, and enhanced icon styling. Add tooltips explaining risk levels. Ensure badges are keyboard accessible and screen-reader friendly. Use the existing medical theme colors while ensuring WCAG compliance."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add utility classes for common interaction patterns like button hover states, focus indicators, and transition effects. Define consistent spacing, typography, and color utilities for improved visual hierarchy. Add focus-visible styles for better keyboard navigation accessibility. Ensure all interactive elements have clear affordances through hover and active states."
+        }
+      ]
+    }
+  ]
+}
