@@ -232,16 +232,6 @@ Test coverage includes:
 
 ---
 
-## 📸 Screenshots
-
-(Add your UI screenshots here for better judge impression)
-
-- Dashboard View
-- Risk Result Output
-- Gene Input Interface
-
----
-
 ## 🚀 Deployment Guide
 
 ### Backend Deployment
@@ -282,12 +272,6 @@ All contributions are reviewed before merging.
 - Mohammed Zabiulla  
 - Shreyas Gennur  
 - Mohammed Danish  
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
 
 ---
 
