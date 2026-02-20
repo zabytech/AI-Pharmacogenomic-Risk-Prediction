@@ -12,7 +12,7 @@
 
 ## 🎬 LinkedIn Demo Video
 
-🔗 (https://www.linkedin.com/posts/mohammed-danish-303066350_rift2026-pharmaguard-pharmacogenomics-activity-7430385199848267778-MWuE?utm_source=share&utm_medium=member_android&rcm=ACoAAFeS0DMBTgXtfGF1bhQec2pkaxN0eocVc1I)  
+🔗 (https://www.linkedin.com/posts/mohammed-danish-303066350_rift2026-pharmaguard-pharmacogenomics-activity-7430420092594716672-khXJ?utm_source=share&utm_medium=member_android&rcm=ACoAAFeS0DMBTgXtfGF1bhQec2pkaxN0eocVc1I)  
 
 Required Hashtags:  
 `#RIFT2026 #PharmaGuard #Pharmacogenomics #AIinHealthcare`
